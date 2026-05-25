@@ -1,0 +1,186 @@
+:root {
+    --primary-color: #059669;
+    --primary-hover: #047857;
+    --success-color: #15803d;
+    --error-color: #b91c1c;
+    --text-main: #0f172a;
+    --text-muted: #475569;
+    --bg-main: #f8fafc;
+    --bg-card: #ffffff;
+    --border-color: #cbd5e1;
+    --radius: 8px;
+    --font-stack: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-stack);
+    background-color: var(--bg-main);
+    color: var(--text-main);
+    line-height: 1.6;
+    padding-bottom: 40px;
+}
+
+.main-header {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 2rem 1rem;
+    text-align: center;
+    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+}
+
+.header-container h1 {
+    font-size: 1.8rem;
+    font-weight: 800;
+}
+
+.subtitle {
+    font-size: 1rem;
+    opacity: 0.9;
+    margin-top: 0.5rem;
+}
+
+.app-container {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+.card {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius);
+    padding: 2rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+.setup-box {
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 2px solid var(--border-color);
+}
+
+.form-control {
+    width: 100%;
+    padding: 0.75rem;
+    font-size: 1rem;
+    border: 2px solid var(--border-color);
+    border-radius: var(--radius);
+    margin: 0.5rem 0 1.5rem 0;
+    background-color: #fff;
+}
+
+.btn {
+    display: inline-block;
+    width: 100%;
+    padding: 0.85rem 1.5rem;
+    font-size: 1rem;
+    font-weight: 700;
+    text-align: center;
+    border: none;
+    border-radius: var(--radius);
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.btn-primary { background-color: var(--primary-color); color: white; }
+.btn-primary:hover { background-color: var(--primary-hover); }
+.btn-success { background-color: var(--success-color); color: white; }
+.btn-secondary { background-color: var(--text-muted); color: white; }
+
+.btn:focus, .option-card input:focus + .option-label {
+    outline: 4px solid #a7f3d0;
+    outline-offset: 2px;
+}
+
+.options-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin: 1.5rem 0;
+}
+
+.option-card {
+    position: relative;
+    display: block;
+    cursor: pointer;
+}
+
+.option-card input {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.option-label {
+    display: block;
+    padding: 1rem;
+    border: 2px solid var(--border-color);
+    border-radius: var(--radius);
+    background-color: #fff;
+    font-weight: 500;
+}
+
+.option-card:hover .option-label {
+    background-color: #f8fafc;
+    border-color: #94a3b8;
+}
+
+.option-card input:checked + .option-label {
+    border-color: var(--primary-color);
+    background-color: #ecfdf5;
+}
+
+.option-card.correct .option-label {
+    border-color: var(--success-color);
+    background-color: #f0fdf4;
+    color: #14532d;
+}
+
+.option-card.incorrect .option-label {
+    border-color: var(--error-color);
+    background-color: #fef2f2;
+    color: #7f1d1d;
+}
+
+.progress-container { margin-bottom: 1rem; }
+#progress-text { font-size: 0.875rem; font-weight: 600; color: var(--text-muted); }
+.progress-bar-bg { width: 100%; height: 8px; background-color: var(--border-color); border-radius: 4px; overflow: hidden; margin-top: 4px; }
+.progress-bar-fill { width: 0%; height: 100%; background-color: var(--primary-color); transition: width 0.3s ease; }
+
+.badge {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    font-size: 0.85rem;
+    font-weight: 700;
+    background-color: #d1fae5;
+    color: var(--primary-color);
+    border-radius: 50px;
+}
+
+.feedback-box { padding: 1rem; border-radius: var(--radius); margin-bottom: 1.5rem; font-weight: 600; }
+.feedback-box.correct { background-color: #f0fdf4; color: #14532d; border-left: 5px solid var(--success-color); }
+.feedback-box.incorrect { background-color: #fef2f2; color: #7f1d1d; border-left: 5px solid var(--error-color); }
+
+.score-display { text-align: center; margin: 2rem 0; }
+.radial-progress { font-size: 3rem; font-weight: 900; color: var(--primary-color); margin-bottom: 0.5rem; }
+.feedback-report { background-color: #f8fafc; padding: 1.5rem; border-radius: var(--radius); margin-bottom: 2rem; border: 1px dashed var(--border-color); }
+.feedback-report h4 { margin-top: 1rem; color: var(--primary-color); }
+
+.hidden { display: none !important; }
+.fade-in { animation: fadeIn 0.4s ease forwards; }
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.educational-info { background-color: #f8fafc; padding: 1rem; border-radius: var(--radius); margin-top: 1rem; }
+.educational-info ul { margin-left: 1.5rem; margin-top: 0.5rem; }
+.main-footer { text-align: center; font-size: 0.85rem; color: var(--text-muted); margin-top: 4rem; }

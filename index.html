@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulador Interactivo de Ciencias Naturales - 10.º EGB</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <header class="main-header">
+        <div class="header-container">
+            <h1>Simulador del Texto de Ciencias Naturales</h1>
+            <p class="subtitle">10.º Año de Educación General Básica (EGB) - 120 Reactivos Curriculares</p>
+        </div>
+    </header>
+
+    <main class="app-container">
+        <!-- Pantalla de Bienvenida -->
+        <section id="welcome-screen" class="card fade-in">
+            <h2>¡Hola! Te damos la bienvenida a tu simulador de aprendizaje</h2>
+            <p>Este simulador evalúa las destrezas con criterios de desempeño del texto oficial ecuatoriano de 10mo Año a través de 120 preguntas aleatorias distribuidas en los bloques curriculares de ciencias.</p>
+            
+            <div class="educational-info">
+                <h3>Bloques Curriculares a Evaluar:</h3>
+                <ul>
+                    <li><strong>Evolución y Genética:</strong> Leyes de Mendel, estructura del ADN, mutaciones y teorías de la evolución celular.</li>
+                    <li><strong>Cuerpo Humano y Salud:</strong> Sistemas de control (endocrino y nervioso), reproducción humana y barreras inmunológicas.</li>
+                    <li><strong>Ecosistemas y Ciclos:</strong> Ciclos biogeoquímicos (carbono, nitrógeno, fósforo) y flujos de energía en la biósfera.</li>
+                    <li><strong>Impacto Ambiental:</strong> Contaminación global, cambio climático y conservación de la biodiversidad en Ecuador.</li>
+                    <li><strong>Materia y Energía:</strong> Leyes físicas, transformaciones energéticas y comportamiento de la materia a nivel atómico.</li>
+                </ul>
+            </div>
+
+            <div class="setup-box">
+                <label for="quiz-mode">Selecciona la longitud del reto:</label>
+                <select id="quiz-mode" class="form-control">
+                    <option value="15">Prueba Rápida (15 preguntas aleatorias)</option>
+                    <option value="30">Evaluación Parcial (30 preguntas aleatorias)</option>
+                    <option value="60">Simulacro General (60 preguntas aleatorias)</option>
+                    <option value="120">Maratón Completo (Las 120 preguntas del banco)</option>
+                </select>
+                <button id="start-btn" class="btn btn-primary">Iniciar Simulador Interactivo</button>
+            </div>
+        </section>
+
+        <!-- Pantalla Principal de la Simulación -->
+        <section id="quiz-screen" class="card fade-in hidden">
+            <header class="quiz-header">
+                <div class="progress-container">
+                    <span id="progress-text" aria-live="polite">Pregunta 1 de X</span>
+                    <div class="progress-bar-bg" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+                        <div id="progress-bar-fill" class="progress-bar-fill"></div>
+                    </div>
+                </div>
+                <div class="badge" id="block-badge" style="display: none;">Bloque: Ciencias en Acción</div>
+            </header>
+
+            <article class="question-container">
+                <h2 id="question-text">Cargando pregunta de 10mo Ciencias Naturales...</h2>
+                <form id="options-form" class="options-grid" onsubmit="event.preventDefault();">
+                    <!-- Las opciones se inyectan dinámicamente con JS -->
+                </form>
+            </article>
+
+            <footer class="quiz-footer">
+                <div id="feedback-box" class="feedback-box hidden" aria-live="assertive"></div>
+                <button id="submit-btn" class="btn btn-success">Verificar Respuesta</button>
+                <button id="next-btn" class="btn btn-primary hidden">Siguiente Pregunta</button>
+            </footer>
+        </section>
+
+        <!-- Pantalla de Resultados -->
+        <section id="result-screen" class="card fade-in hidden">
+            <h2>Resultados de la Evaluación</h2>
+            <div class="score-display">
+                <div class="radial-progress">
+                    <span id="final-percentage">0%</span>
+                </div>
+                <p id="score-summary">Has respondido correctamente X de Y preguntas.</p>
+            </div>
+
+            <div id="pedagogical-feedback" class="feedback-report">
+                <!-- Análisis del nivel de logro del estudiante -->
+            </div>
+
+            <button id="restart-btn" class="btn btn-secondary">Intentar un nuevo simulacro</button>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <p>&copy; 2026 Material Didáctico Adaptado para la Educación General Básica Superior del Ecuador.</p>
+    </footer>
+</body>
+</html>
